@@ -1,6 +1,7 @@
 from pathlib import Path
 import mysql.connector 
 
+# connect the the database
 schoolDB = mysql.connector.connect(
     host = "localhost",
     user = "newroot",
@@ -19,6 +20,14 @@ def excute_file(file_name):
 
 
 
-sql_files = Path('.').glob('*.sql')
-for file in sql_files:
-    excute_file(file)
+"""
+loop through the sql files
+in the curren directory and excutes them
+"""
+def main():
+    sql_files = Path('.').glob('*.sql')
+    for file in sql_files:
+        excute_file(file)
+
+if __name__ == "__main__":
+    main()
